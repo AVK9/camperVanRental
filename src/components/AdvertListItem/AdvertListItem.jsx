@@ -10,14 +10,17 @@ import {
   Price,
   Favorite,
   RatingBox,
-  Rating,
-  Location,
+  TextItem,
   Description,
-  DDescription,
-  ButtonText,
+  DescriptionBox,
+  IconWrapper,
+  BoxItem,
+  TextItemLoc,
+  Details,
 } from './AdvertListItem.styled';
 import { Button } from '../common/Button/Button';
-
+import { Category } from '../common/Category/Category';
+import sprite from '../../assets/img/sprite.svg';
 export const AdvertListItem = ({ data }) => {
   // const dispatch = useDispatch();
   const {
@@ -49,26 +52,43 @@ export const AdvertListItem = ({ data }) => {
           <Name>{name}</Name>
           <PriceBox>
             <Price>€ {price}.00</Price>
-            <Favorite></Favorite>
+            <Favorite>
+              <IconWrapper
+                // color="var(--button)"
+                size="24px"
+              >
+                <use href={`${sprite}#icon-heart`} />
+              </IconWrapper>
+            </Favorite>
           </PriceBox>
         </PreHead>
         <RatingBox>
-          <Rating>
-            `{rating}({reviews.length} Reviews)`
-          </Rating>
-          <Location>{location}</Location>
+          <BoxItem>
+            <IconWrapper>
+              <use href={`${sprite}#icon-star`} />
+            </IconWrapper>
+            <TextItem>
+              {rating}({reviews.length} Reviews)
+            </TextItem>
+          </BoxItem>
+          <BoxItem>
+            <IconWrapper>
+              <use href={`${sprite}#icon-map`} />
+            </IconWrapper>
+            <TextItemLoc>{location}</TextItemLoc>
+          </BoxItem>
         </RatingBox>
-        <DDescription>
+        <DescriptionBox>
           <Description>{description}</Description>
-        </DDescription>
+        </DescriptionBox>
 
-        {/* <Details></Details> */}
+        <Details>
+          <Category details={details} />
+        </Details>
 
         <Button
         // onClick={() => dispatch(delContactThunk(id))}
-        >
-          <ButtonText />
-        </Button>
+        />
       </PreInfo>
     </Item>
   );

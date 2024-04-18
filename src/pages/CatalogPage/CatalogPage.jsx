@@ -1,12 +1,14 @@
-import { Container, Title, StyledImage } from './CatalogPage.styled';
-import example from '../../assets/example.png';
+import { Container, FiltrBox } from './CatalogPage.styled';
 import { AdvertList } from '../../components/AdvertList/AdvertList';
-
+import { LocationFiltr } from '../../components/Location/Location';
+import { Filters } from '../../components/Filters/Filters';
 const CatalogPage = () => {
   return (
     <Container>
-      <Title>Catalog Page</Title>
-      <StyledImage src={example} alt="Example" />
+      <FiltrBox iltrBox>
+        <LocationFiltr />
+        <Filters />
+      </FiltrBox>
       <AdvertList />
     </Container>
   );
