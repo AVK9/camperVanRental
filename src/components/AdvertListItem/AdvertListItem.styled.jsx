@@ -22,6 +22,7 @@ export const PrePhoto = styled.div`
 export const PreInfo = styled.div`
   width: 100%;
 `;
+
 export const PreHead = styled.div`
   display: flex;
   justify-content: space-between;
@@ -97,4 +98,23 @@ export const IconWrapper = styled.svg`
   stroke-width: 2.3px;
   stroke: ${(props) => props.color || '#101828'};
   fill: ${(props) => props.color || '#ffffff'};
+`;
+
+export const Button = styled.button`
+  margin-top: 24px;
+  border-radius: 200px;
+  padding: 16px 40px;
+  width: 166px;
+  height: 56px;
+  background: var(--button);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+
+  &:hover {
+    background: #d84343;
+  }
 `;

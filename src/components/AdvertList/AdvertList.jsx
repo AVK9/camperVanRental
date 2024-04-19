@@ -10,6 +10,8 @@ import {
 import { AdvertListItem } from '../AdvertListItem/AdvertListItem';
 import { List } from './AdvertList.styled';
 
+import { Loader } from '../Loader/Loader';
+
 export const AdvertList = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
@@ -26,19 +28,18 @@ export const AdvertList = () => {
 
   return (
     <>
-      {loading && !error && <p>Loading pleasure wait</p>}
+      {loading && <Loader />}
+      {/* {loading && !error && <p>Loading pleasure wait</p>} */}
       {error && <p>Error: {error}</p>}
       {adverts.length ? (
         <List>
           {adverts.map((data) => (
-            <AdvertListItem
-              data={data}
-              key={data._id}
-            />
+            <AdvertListItem data={data} key={data._id} />
           ))}
         </List>
       ) : (
-        <p>No contacts to filter</p>
+        <Loader />
+        // <p>No contacts to filter</p>
       )}
     </>
   );
