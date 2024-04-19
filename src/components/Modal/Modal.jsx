@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// import 'react-tabs/style/react-tabs.css';
 
 import sprite from '../../assets/img/sprite.svg';
 import {
@@ -18,10 +20,22 @@ import {
   DescriptionBox,
   Description,
   PrePhoto,
+  TabBox,
+  TabHead,
+  TabName,
+  FeaturesTab,
 } from './Modal.styled';
+import { Category } from '../common/Category/Category';
+import { VehicleDetails } from '../VehicleDetails/VehicleDetails';
+import { Reviews } from '../Reviews/Reviews';
 
 export const Modal = ({ onClose, data }) => {
+  const [activeTab, setActiveTab] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleTabClick = (tabNumber) => {
+    setActiveTab(tabNumber);
+  };
 
   const dispatch = useDispatch();
 
@@ -75,12 +89,54 @@ export const Modal = ({ onClose, data }) => {
         </PriceBox>
         <PhotoBox>
           {data.gallery.map((item) => (
-            <PrePhoto key={new Date()} gallery={item} />
+            <PrePhoto key={item} gallery={item} />
           ))}
         </PhotoBox>
         <DescriptionBox>
           <Description>{data.description}</Description>
         </DescriptionBox>
+        <TabBox>
+          <Tabs>
+            <TabList>
+              <TabHead>
+                <Tab>
+                  <TabName
+                    style={
+                      activeTab === 1
+                        ? { borderBottom: '4px solid #e44848' }
+                        : { borderBottom: 'none' }
+                    }
+                    onClick={() => handleTabClick(1)}
+                  >
+                    Features
+                  </TabName>
+                </Tab>
+                <Tab>
+                  <TabName
+                    onClick={() => handleTabClick(2)}
+                    style={
+                      activeTab === 2
+                        ? { borderBottom: '4px solid #e44848' }
+                        : { borderBottom: 'none' }
+                    }
+                  >
+                    Reviews
+                  </TabName>
+                </Tab>
+              </TabHead>
+            </TabList>
+
+            <TabPanel>
+              <FeaturesTab>
+                <Category details={data.details} />
+                <VehicleDetails data={data} />
+              </FeaturesTab>
+            </TabPanel>
+            <TabPanel>
+              <Reviews reviews={data.reviews} />
+            </TabPanel>
+          </Tabs>
+        </TabBox>
       </ModalW>
     </Backdrop>
   );

@@ -146,3 +146,31 @@ export const IconWrapper = styled.svg`
   stroke: ${(props) => props.color || '#101828'};
   fill: ${(props) => props.color || '#ffffff'};
 `;
+
+export const TabBox = styled.div`
+  margin-top: 44px;
+`;
+export const TabHead = styled.div`
+  display: flex;
+  gap: 40px;
+  height: 48px;
+  border-bottom: 1px solid #bcbcbd;
+`;
+export const TabName = styled.div`
+  height: 48px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+
+  /* &:focus,
+  &:active {
+    border-bottom: 4px solid #e44848;
+  } */
+`;
+
+export const FeaturesTab = styled.div`
+  margin-top: 44px;
+  width: 430px;
+`;
