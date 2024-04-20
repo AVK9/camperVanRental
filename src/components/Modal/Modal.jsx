@@ -24,10 +24,12 @@ import {
   TabHead,
   TabName,
   FeaturesTab,
+  InfoBox,
 } from './Modal.styled';
 import { Category } from '../common/Category/Category';
 import { VehicleDetails } from '../VehicleDetails/VehicleDetails';
 import { Reviews } from '../Reviews/Reviews';
+import { Form } from '../Form/Form';
 
 export const Modal = ({ onClose, data }) => {
   const [activeTab, setActiveTab] = useState(1);
@@ -128,12 +130,20 @@ export const Modal = ({ onClose, data }) => {
 
             <TabPanel>
               <FeaturesTab>
-                <Category details={data.details} />
-                <VehicleDetails data={data} />
+                <InfoBox>
+                  <Category details={data.details} />
+                  <VehicleDetails data={data} />
+                </InfoBox>
+                <Form />
               </FeaturesTab>
             </TabPanel>
             <TabPanel>
-              <Reviews reviews={data.reviews} />
+              <FeaturesTab>
+                <InfoBox>
+                  <Reviews reviews={data.reviews} />
+                </InfoBox>
+                <Form />
+              </FeaturesTab>
             </TabPanel>
           </Tabs>
         </TabBox>

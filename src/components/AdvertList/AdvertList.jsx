@@ -20,8 +20,7 @@ export const AdvertList = () => {
   // const contacts = useSelector(selectVisibleContacts);
   const adverts = useSelector(selectStateAdverts);
 
-  console.log('adverts :>> ', adverts);
-
+ 
   useEffect(() => {
     dispatch(getAdvertsThunk());
   }, [dispatch]);

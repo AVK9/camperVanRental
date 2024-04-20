@@ -3,7 +3,7 @@ import {
   handleFulfilled,
   handlePending,
   handleRejected,
-} from '../auth/handlers';
+} from './advertsHandlers';
 import { handleGetAdverts } from './advertsHandlers';
 import { getAdvertsThunk } from './advertsThunk';
 const initialState = {

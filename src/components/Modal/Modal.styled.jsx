@@ -171,6 +171,10 @@ export const TabName = styled.div`
 `;
 
 export const FeaturesTab = styled.div`
+  display: flex;
+  gap: 24px;
+`;
+export const InfoBox = styled.div`
   margin-top: 44px;
   width: 430px;
 `;

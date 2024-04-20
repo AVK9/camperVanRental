@@ -99,6 +99,13 @@ export const IconWrapper = styled.svg`
   stroke: ${(props) => props.color || '#101828'};
   fill: ${(props) => props.color || '#ffffff'};
 `;
+export const IconWrapperFavorite = styled.svg`
+  width: ${(props) => props.size || '16px'};
+  height: ${(props) => props.size || '16px'};
+  stroke-width: 2.3px;
+  stroke: ${(props) => props.color || '#101828'};
+  fill: ${(props) => props.color || '#ffffff'};
+`;
 
 export const Button = styled.button`
   margin-top: 24px;

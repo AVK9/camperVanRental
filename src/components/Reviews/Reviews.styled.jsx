@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const ReviewsBox = styled.div`
   margin-top: 44px;
-  width: 430px;
+  /* width: 430px; */
+  display: flex;
+  flex-direction: column;
 `;
 
 export const NameBox = styled.div`

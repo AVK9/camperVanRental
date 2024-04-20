@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
 import HalfPage from 'pages/HalfPage/HalfPage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { AppWrapper } from './App.styled';
 
@@ -23,6 +25,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
+      <ToastContainer autoClose={3000} />
     </AppWrapper>
   );
 }
