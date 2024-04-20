@@ -5,7 +5,7 @@ import { Filters } from '../../components/Filters/Filters';
 const CatalogPage = () => {
   return (
     <Container>
-      <FiltrBox iltrBox>
+      <FiltrBox>
         <LocationFiltr />
         <Filters />
       </FiltrBox>

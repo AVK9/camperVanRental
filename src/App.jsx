@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
-import HalfPage from 'pages/HalfPage/HalfPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,9 +18,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/favorites" element={<FavoritesPage />}>
-            <Route path=":half" element={<HalfPage />} />
-          </Route>
+          <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
