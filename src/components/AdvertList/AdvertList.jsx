@@ -5,7 +5,8 @@ import { getAdvertsThunk } from '../../store/adverts/advertsThunk';
 import {
   selectLoading,
   selectError,
-  selectStateAdverts,
+  // selectVisibleAdverts,
+  selectVisibleVehicleType,
 } from '../../store/adverts/advertsSelector ';
 import { AdvertListItem } from '../AdvertListItem/AdvertListItem';
 import { List, LoadMoreBtn } from './AdvertList.styled';
@@ -21,18 +22,20 @@ export const AdvertList = () => {
     dispatch(getAdvertsThunk());
   }, [dispatch]);
   const [page, setPage] = useState(4);
-  // const contacts = useSelector(selectVisibleContacts);
-  const adverts = useSelector(selectStateAdverts);
+
+  // const adverts = useSelector(selectStateAdverts);
+  // const adverts = useSelector(selectVisibleAdverts);
+  const adverts = useSelector(selectVisibleVehicleType);
+
+  console.log('advertsss', adverts);
+
   const totalAdverts = adverts.length;
   const advertsPageList = adverts.slice(0, page);
   const currentLengthPage = advertsPageList.length;
 
   const clickLoadMore = () => {
-    console.log('page', page);
     setPage(page + 4);
   };
-
-  console.log(totalAdverts);
 
   return (
     <>

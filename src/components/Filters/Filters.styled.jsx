@@ -49,6 +49,7 @@ export const ItemCar = styled.div`
     border: 1px solid var(--button);
   }
 `;
+export const ItemCarsInput = styled.input``;
 export const ItemCars = styled.div`
   border: 1px solid rgba(26, 26, 26, 0.2);
   border-radius: 10px;
@@ -72,7 +73,6 @@ export const IconWrapper = styled.svg`
   stroke-width: 0.9px;
 `;
 export const ButtonName = styled.span`
-  margin-top: 9px;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
@@ -97,4 +97,72 @@ export const IconWrappeAC = styled.svg`
   width: ${(props) => props.size || '32px'};
   height: ${(props) => props.size || '32px'};
   fill: ${(props) => props.color || '#000000'};
+`;
+
+export const ButtonReset = styled.button`
+  margin-top: 64px;
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 173px;
+  height: 56px;
+  background: var(--button);
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+
+  &:hover {
+    background: #d84343;
+  }
+`;
+
+export const RadioWrapper = styled.label`
+  position: relative;
+`;
+
+export const RadioInput = styled.input`
+  display: none;
+`;
+
+export const RadioCustom = styled.div`
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  padding: 17px 24px;
+  width: 100px;
+  height: 95px;
+  mix-blend-mode: multiply;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--button);
+  }
+
+  ${RadioInput}:checked + & {
+    border: 1px solid var(--button);
+  }
+`;
+export const IconGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  left: 22px;
+`;
+export const IconGroupFully = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 2px;
+  left: 4px;
 `;

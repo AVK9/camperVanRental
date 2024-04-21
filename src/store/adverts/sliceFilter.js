@@ -1,18 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  filter: "",
-}
+  filter: '',
+  type: '',
+  equipment: '',
+};
 
 const filterSlice = createSlice({
-    name: 'filter',
-    initialState,
-    reducers: {
-        filterContactAction: (state, { payload }) => {
-              state.filter = payload
-        }
-    }
-})
+  name: 'filter',
+  initialState,
+  reducers: {
+    filterAdvertsAction: (state, { payload }) => {
+      state.filter = payload;
+    },
+    typeAdvertsAction: (state, { payload }) => {
+      state.type = payload;
+    },
+    equipmentAdvertsAction: (state, { payload }) => {
+      state.equipment = payload;
+    },
+  },
+});
 
-export const { filterContactAction} = filterSlice.actions
-export const filterReduser = filterSlice.reducer
+export const {
+  filterAdvertsAction,
+  typeAdvertsAction,
+  equipmentAdvertsAction,
+} = filterSlice.actions;
+export const filterReduser = filterSlice.reducer;
