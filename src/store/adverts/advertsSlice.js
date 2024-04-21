@@ -9,7 +9,7 @@ import { getAdvertsThunk } from './advertsThunk';
 const initialState = {
   adverts: [],
   isLoading: false,
-  error: null,
+  error: '',
 };
 const advertsSlice = createSlice({
   name: 'adverts',
