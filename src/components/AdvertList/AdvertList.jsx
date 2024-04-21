@@ -7,6 +7,7 @@ import {
   selectError,
   // selectVisibleAdverts,
   selectVisibleVehicleType,
+  // selectVisibleVehicleEquipment,
 } from '../../store/adverts/advertsSelector ';
 import { AdvertListItem } from '../AdvertListItem/AdvertListItem';
 import { List, LoadMoreBtn } from './AdvertList.styled';
@@ -26,8 +27,8 @@ export const AdvertList = () => {
   // const adverts = useSelector(selectStateAdverts);
   // const adverts = useSelector(selectVisibleAdverts);
   const adverts = useSelector(selectVisibleVehicleType);
-
-  console.log('advertsss', adverts);
+  // const advertssss = useSelector(selectVisibleVehicleEquipment);
+  // console.log('advertsss', advertssss);
 
   const totalAdverts = adverts.length;
   const advertsPageList = adverts.slice(0, page);

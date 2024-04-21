@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   filter: '',
   type: '',
-  equipment: '',
+  equipment: [],
 };
 
 const filterSlice = createSlice({
@@ -17,7 +17,8 @@ const filterSlice = createSlice({
       state.type = payload;
     },
     equipmentAdvertsAction: (state, { payload }) => {
-      state.equipment = payload;
+      state.equipment.push(payload);
+      // state.equipment = [...state.equipment, payload];
     },
   },
 });

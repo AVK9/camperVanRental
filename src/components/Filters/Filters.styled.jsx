@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 export const FiltersBox = styled.div`
   margin-top: 32px;
-
+  gap: 32px;
   border: none;
   display: flex;
   flex-direction: column;
 `;
 
 export const Name = styled.p`
-  margin-bottom: 14px;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
@@ -24,9 +23,7 @@ export const FiltersName = styled.p`
   color: var(--main);
 `;
 export const DecorLine = styled.div`
-  height: 24px;
   border-bottom: 1px solid rgba(16, 24, 40, 0.1);
-  margin-bottom: 24px;
 `;
 export const SectionBox = styled.div`
   display: flex;
@@ -84,7 +81,6 @@ export const GroupFiltr = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 32 px;
 `;
 export const IconWrappes = styled.svg`
   width: ${(props) => props.size || '32px'};
@@ -100,7 +96,6 @@ export const IconWrappeAC = styled.svg`
 `;
 
 export const ButtonReset = styled.button`
-  margin-top: 64px;
   border-radius: 200px;
   padding: 16px 60px;
   width: 173px;
@@ -165,4 +160,37 @@ export const IconGroupFully = styled.div`
   position: absolute;
   top: 2px;
   left: 4px;
+`;
+
+export const IconGroupEq = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 22px;
+  left: 8px;
+`;
+export const IconGroupTv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 22px;
+  left: 32px;
+`;
+export const IconGroupKitch = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 22px;
+  left: 22px;
+`;
+export const IconGroupAvt = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 22px;
+  left: 15px;
 `;

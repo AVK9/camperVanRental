@@ -20,23 +20,39 @@ import {
   RadioCustom,
   IconGroup,
   IconGroupFully,
+  IconGroupEq,
+  IconGroupTv,
+  IconGroupKitch,
+  IconGroupAvt,
 } from './Filters.styled';
 import sprite from '../../assets/img/sprite.svg';
-import { typeAdvertsAction } from '../../store/adverts/sliceFilter';
+import {
+  equipmentAdvertsAction,
+  typeAdvertsAction,
+} from '../../store/adverts/sliceFilter';
 export const Filters = () => {
   const dispatch = useDispatch();
   const [type, setType] = useState('');
+  const [equipment, setEquipment] = useState([]);
 
-  const handInputFilter = (e) => {
+  const typeInputFilter = (e) => {
     setType(e.target.value);
     dispatch(typeAdvertsAction(e.target.value));
+  };
+  const equipmentInputFilter = (e) => {
+    console.log('e.target.value', e.target.value);
+
+    setEquipment((prevEquipment) => [...prevEquipment, e.target.value]);
+
+    dispatch(equipmentAdvertsAction(e.target.value));
+    console.log('equipment', equipment);
   };
 
   const clearInputFilter = (e) => {
     e.preventDefault();
     setType('');
+    setEquipment('');
     dispatch(typeAdvertsAction(''));
-    console.log('CLICKKKK', type);
   };
 
   return (
@@ -46,40 +62,94 @@ export const Filters = () => {
         <FiltersName>Vehicle equipment</FiltersName>
         <DecorLine />
         <GroupFiltr>
-          <ItemCars>
-            <IconWrappeAC>
-              <use href={`${sprite}#icon-AC`} />
-            </IconWrappeAC>
-            <ButtonName>AC</ButtonName>
-          </ItemCars>
-          <ItemCars>
-            <IconWrappes>
-              <use href={`${sprite}#icon-automatic`} />
-            </IconWrappes>
-            <ButtonName>Automatic</ButtonName>
-          </ItemCars>
-          <ItemCars>
-            <IconWrappes>
-              <use href={`${sprite}#icon-kitchen`} />
-            </IconWrappes>
-            <ButtonName>Kitchen</ButtonName>
-          </ItemCars>
-          <ItemCars>
-            <IconWrappes>
-              <use href={`${sprite}#icon-TV`} />
-            </IconWrappes>
-            <ButtonName>TV</ButtonName>
-          </ItemCars>
-          <ItemCars>
-            <IconWrappes>
-              <use href={`${sprite}#icon-shower`} />
-            </IconWrappes>
-            <ButtonName>Shower/WC</ButtonName>
-          </ItemCars>
+          <RadioWrapper>
+            <IconGroupTv>
+              <IconWrappeAC>
+                <use href={`${sprite}#icon-AC`} />
+              </IconWrappeAC>
+              <ButtonName>AC</ButtonName>
+            </IconGroupTv>
+            <RadioInput
+              type="checkbox"
+              id="airConditioner"
+              name="options"
+              value="airConditioner"
+              checked={equipment.includes('airConditioner')}
+              onChange={equipmentInputFilter}
+            />
+            <RadioCustom />
+          </RadioWrapper>
+          <RadioWrapper>
+            <IconGroupAvt>
+              <IconWrappes>
+                <use href={`${sprite}#icon-automatic`} />
+              </IconWrappes>
+              <ButtonName>Automatic</ButtonName>
+            </IconGroupAvt>
+            <RadioInput
+              type="checkbox"
+              id="transmission"
+              name="options"
+              value="transmission"
+              checked={equipment.includes('transmission')}
+              onChange={equipmentInputFilter}
+            />
+            <RadioCustom />
+          </RadioWrapper>
+          <RadioWrapper>
+            <IconGroupKitch>
+              <IconWrappes>
+                <use href={`${sprite}#icon-kitchen`} />
+              </IconWrappes>
+              <ButtonName>Kitchen</ButtonName>
+            </IconGroupKitch>
+            <RadioInput
+              type="checkbox"
+              id="kitchen"
+              name="options"
+              value="kitchen"
+              checked={equipment.includes('kitchen')}
+              onChange={equipmentInputFilter}
+            />
+            <RadioCustom />
+          </RadioWrapper>
+          <RadioWrapper>
+            <IconGroupTv>
+              <IconWrappes>
+                <use href={`${sprite}#icon-TV`} />
+              </IconWrappes>
+              <ButtonName>TV</ButtonName>
+            </IconGroupTv>
+            <RadioInput
+              type="checkbox"
+              id="TV"
+              name="options"
+              value="TV"
+              checked={equipment.includes('TV')}
+              onChange={equipmentInputFilter}
+            />
+            <RadioCustom />
+          </RadioWrapper>
+          <RadioWrapper>
+            <IconGroupEq>
+              <IconWrappes>
+                <use href={`${sprite}#icon-shower`} />
+              </IconWrappes>
+              <ButtonName>Shower/WC</ButtonName>
+            </IconGroupEq>
+            <RadioInput
+              type="radio"
+              id="shower"
+              name="options"
+              value="shower"
+              checked={equipment.includes('shower')}
+              onChange={equipmentInputFilter}
+            />
+            <RadioCustom />
+          </RadioWrapper>
         </GroupFiltr>
         <FiltersName>Vehicle type</FiltersName>
         <DecorLine />
-
         <SectionBox>
           <GroupFiltr>
             <RadioWrapper>
@@ -95,7 +165,7 @@ export const Filters = () => {
                 name="options"
                 value="panelTruck"
                 checked={type === 'panelTruck'}
-                onChange={handInputFilter}
+                onChange={typeInputFilter}
               />
               <RadioCustom />
             </RadioWrapper>
@@ -112,7 +182,7 @@ export const Filters = () => {
                 name="options"
                 value="fullyIntegrated"
                 checked={type === 'fullyIntegrated'}
-                onChange={handInputFilter}
+                onChange={typeInputFilter}
               />
               <RadioCustom />
             </RadioWrapper>
@@ -129,7 +199,7 @@ export const Filters = () => {
                 name="options"
                 value="alcove"
                 checked={type === 'alcove'}
-                onChange={handInputFilter}
+                onChange={typeInputFilter}
               />
               <RadioCustom />
             </RadioWrapper>
